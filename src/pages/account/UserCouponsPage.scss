@@ -1,0 +1,99 @@
+@import "../../styles/global.scss";
+
+.user-coupons-page {
+  .page-header {
+    margin-bottom: $space-8;
+    .lead-text {
+      font-size: 0.9375rem;
+      color: $text-muted;
+      margin-top: 4px;
+    }
+  }
+
+  .coupons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: $space-6;
+  }
+
+  .coupon-ticket-card {
+    position: relative;
+    background: $surface-subtle;
+    border: 1.5px dashed $border;
+    border-radius: $radius-md;
+    padding: $space-6;
+    display: flex;
+    flex-direction: column;
+
+    .ticket-cutout {
+      position: absolute;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      background: $surface;
+      border-radius: 50%;
+      border: 1.5px dashed $border;
+      transform: translateY(-50%);
+
+      &.left {
+        left: -8px;
+        clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+      }
+      &.right {
+        right: -8px;
+        clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+      }
+    }
+
+    .ticket-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $space-4;
+
+      .coupon-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        background: #fef3c7;
+        color: #92400e;
+        padding: 3px 8px;
+        border-radius: $radius-sm;
+      }
+
+      .validity {
+        font-size: 0.6875rem;
+        color: $text-muted;
+      }
+    }
+
+    .coupon-code-display {
+      font-family: $font-serif;
+      font-size: 1.5rem;
+      color: $primary;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .coupon-desc {
+      font-size: 0.8125rem;
+      color: $text-muted;
+      line-height: 1.45;
+      margin-bottom: $space-3;
+    }
+
+    .coupon-min-order {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: $text;
+      margin-bottom: $space-4;
+    }
+
+    .copy-btn {
+      width: 100%;
+      margin-top: auto;
+    }
+  }
+}

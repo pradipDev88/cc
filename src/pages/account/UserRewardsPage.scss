@@ -1,0 +1,141 @@
+@import "../../styles/global.scss";
+
+.user-rewards-page {
+  .page-header {
+    margin-bottom: $space-8;
+    .lead-text {
+      font-size: 0.9375rem;
+      color: $text-muted;
+      margin-top: 4px;
+    }
+  }
+
+  .rewards-hero-card {
+    background: #18191d;
+    color: #ffffff;
+    border-radius: $radius-lg;
+    padding: $space-8;
+    margin-bottom: $space-10;
+
+    .miles-badge {
+      display: flex;
+      align-items: center;
+      gap: $space-4;
+      margin-bottom: $space-6;
+
+      .badge-icon {
+        color: $accent-bronze;
+      }
+
+      .miles-val-box {
+        display: flex;
+        flex-direction: column;
+
+        .miles-num {
+          font-family: $font-serif;
+          font-size: 2.5rem;
+          line-height: 1;
+          color: #ffffff;
+        }
+
+        .miles-label {
+          font-size: 0.75rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #9ca3af;
+        }
+      }
+    }
+
+    .tier-progress-area {
+      .tier-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8125rem;
+        color: #d1d5db;
+        margin-bottom: 8px;
+
+        strong {
+          color: #ffffff;
+        }
+      }
+
+      .tier-bar-track {
+        width: 100%;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: $radius-full;
+        overflow: hidden;
+
+        .tier-bar-fill {
+          height: 100%;
+          background: $accent-bronze;
+          border-radius: $radius-full;
+        }
+      }
+    }
+  }
+
+  .tiers-grid-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: $space-4;
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: $space-4;
+
+    .tier-card {
+      background: $surface-subtle;
+      border: 1px solid $border-light;
+      border-radius: $radius-md;
+      padding: $space-6;
+      display: flex;
+      flex-direction: column;
+
+      &.current-tier {
+        border-color: $accent-bronze;
+        background: #fffbeb;
+      }
+
+      .tier-card-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+
+        h4 {
+          font-size: 1.125rem;
+          font-weight: 700;
+          color: $primary;
+        }
+
+        .active-tag {
+          font-size: 0.625rem;
+          font-weight: 700;
+          background: $accent-bronze;
+          color: #ffffff;
+          padding: 2px 6px;
+          border-radius: $radius-sm;
+          text-transform: uppercase;
+        }
+      }
+
+      .points-threshold {
+        font-size: 0.75rem;
+        color: $text-muted;
+        font-weight: 600;
+        margin-bottom: $space-4;
+      }
+
+      .tier-perks {
+        font-size: 0.8125rem;
+        color: $text;
+        line-height: 1.45;
+        margin-top: auto;
+      }
+    }
+  }
+}

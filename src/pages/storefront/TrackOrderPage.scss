@@ -1,0 +1,316 @@
+@import "../../styles/global.scss";
+
+.track-order-page {
+  padding-top: $space-8;
+  padding-bottom: $space-20;
+}
+
+.track-header-card {
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+  padding: $space-8;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto $space-10;
+
+  .track-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: $accent-bronze;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .track-desc {
+    font-size: 0.9375rem;
+    color: $text-muted;
+    margin-bottom: $space-6;
+  }
+
+  .track-search-form {
+    display: flex;
+    gap: $space-3;
+    max-width: 440px;
+    margin: 0 auto;
+
+    input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1.5px solid $border;
+      border-radius: $radius-sm;
+      font-size: 0.9375rem;
+      outline: none;
+
+      &:focus {
+        border-color: $primary;
+      }
+    }
+  }
+}
+
+.track-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-8;
+
+  @media (min-width: $bp-desktop) {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.timeline-card {
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  padding: $space-8;
+
+  .timeline-meta-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: $space-4;
+    padding-bottom: $space-6;
+    border-bottom: 1px solid $border-light;
+    margin-bottom: $space-8;
+
+    .meta-label {
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $text-muted;
+      display: block;
+    }
+
+    .order-num {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: $primary;
+      margin-top: 2px;
+    }
+
+    .courier-val,
+    .eta-val {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: $text;
+      margin-top: 2px;
+    }
+  }
+
+  .horizontal-stepper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $space-10;
+    overflow-x: auto;
+    padding-bottom: $space-4;
+
+    .step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+      min-width: 80px;
+      opacity: 0.4;
+
+      &.passed {
+        opacity: 1;
+        .step-circle {
+          background: #166534;
+          color: #ffffff;
+        }
+        .step-name {
+          color: #166534;
+          font-weight: 600;
+        }
+      }
+
+      &.current {
+        opacity: 1;
+        .step-circle {
+          background: $primary;
+          color: #ffffff;
+          box-shadow: 0 0 0 3px rgba(18, 19, 22, 0.2);
+        }
+        .step-name {
+          color: $primary;
+          font-weight: 700;
+        }
+      }
+
+      .step-circle {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: $border;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .step-name {
+        font-size: 0.6875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-align: center;
+      }
+    }
+  }
+
+  .events-vertical-list {
+    .events-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: $space-6;
+    }
+
+    .event-row {
+      display: flex;
+      gap: $space-4;
+
+      .event-marker {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 16px;
+
+        .marker-dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: $accent-bronze;
+          margin-top: 4px;
+        }
+
+        .marker-line {
+          flex: 1;
+          width: 2px;
+          background: $border;
+          min-height: 48px;
+        }
+      }
+
+      .event-details {
+        flex: 1;
+        padding-bottom: $space-6;
+
+        .event-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          margin-bottom: 4px;
+
+          .event-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: $text;
+          }
+
+          .event-time {
+            font-size: 0.75rem;
+            color: $text-muted;
+          }
+        }
+
+        .event-desc {
+          font-size: 0.8125rem;
+          color: $text-muted;
+          line-height: 1.45;
+          margin-bottom: 4px;
+        }
+
+        .event-location {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 0.75rem;
+          color: $accent-bronze;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.order-items-sidebar {
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  padding: $space-6;
+  height: fit-content;
+
+  .side-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: $space-4;
+    padding-bottom: $space-3;
+    border-bottom: 1px solid $border-light;
+  }
+
+  .side-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    margin-bottom: $space-6;
+
+    .side-item-row {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+
+      .side-item-thumb {
+        width: 48px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: $radius-sm;
+      }
+
+      .side-item-meta {
+        display: flex;
+        flex-direction: column;
+
+        .item-name {
+          font-size: 0.875rem;
+          font-weight: 600;
+          color: $text;
+        }
+
+        .item-qty {
+          font-size: 0.75rem;
+          color: $text-muted;
+        }
+
+        .item-price {
+          font-size: 0.8125rem;
+          font-weight: 700;
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .delivery-destination-box {
+    background: $surface-subtle;
+    padding: $space-4;
+    border-radius: $radius-md;
+
+    .dest-label {
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $text-muted;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    p {
+      font-size: 0.8125rem;
+      color: $text;
+      line-height: 1.4;
+    }
+  }
+}

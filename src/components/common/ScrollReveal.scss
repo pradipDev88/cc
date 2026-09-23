@@ -1,0 +1,82 @@
+@import "../../styles/global.scss";
+
+// Base Scroll Reveal Container
+.scroll-reveal-box {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  overflow-x: clip;
+  will-change: transform, opacity, filter;
+  transition-property: transform, opacity, filter;
+  transition-duration: 0.95s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+  // Hidden State (before scrolling into view)
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+
+    &.animation-slide-up {
+      transform: translateY(70px);
+      filter: blur(6px);
+    }
+
+    &.animation-heavy-lift {
+      transform: translateY(90px) scale(0.94) rotateX(4deg);
+      filter: blur(8px);
+    }
+
+    &.animation-scale-up {
+      transform: scale(0.88) translateY(50px);
+      filter: blur(8px);
+    }
+
+    &.animation-fade-zoom {
+      transform: scale(1.06);
+      filter: blur(10px);
+    }
+
+    &.animation-curtain-wipe {
+      transform: translateY(60px);
+      clip-path: inset(0 0 100% 0);
+    }
+  }
+
+  // Revealed State (triggered as user scrolls to it)
+  &.is-revealed {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+
+    // Staggered child reveals inside revealed containers
+    &.stagger-enabled {
+      .stagger-item {
+        opacity: 0;
+        transform: translateY(45px) scale(0.95);
+        animation: staggerLift 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+        @for $i from 1 through 12 {
+          &:nth-child(#{$i}) {
+            animation-delay: #{$i * 0.08}s;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Stagger lift keyframe
+@keyframes staggerLift {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.94);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}

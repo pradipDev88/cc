@@ -1,0 +1,577 @@
+@import "../../styles/global.scss";
+
+.velo-preloader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(16px, 3vh, 36px) clamp(20px, 4vw, 48px);
+  overflow: hidden;
+  user-select: none;
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.fade-out {
+    opacity: 0;
+    transform: scale(1.02);
+    pointer-events: none;
+  }
+
+  // Subtle luxury background radiant glow
+  .preloader-backdrop-glow {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(37, 99, 235, 0.07) 0%,
+      rgba(245, 158, 11, 0.04) 40%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // Header Bar
+  .preloader-header {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      .brand-title {
+        font-family: $font-serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: #0f172a;
+      }
+
+      .brand-tag {
+        font-family: $font-sans;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        color: #94a3b8;
+      }
+    }
+
+    .skip-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #475569;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #0f172a;
+        color: #ffffff;
+        border-color: #0f172a;
+        transform: translateX(2px);
+      }
+    }
+  }
+
+  // Main Animation Stage
+  .preloader-stage-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 900px;
+    height: 60vh;
+    min-height: 340px;
+    max-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .stage-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+  }
+
+  // Footer / Status & Progress
+  .preloader-footer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 9999px;
+
+      .sparkle-icon {
+        color: #d97706;
+        animation: spin-pulse 3s infinite linear;
+      }
+
+      .status-label {
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: #334155;
+        letter-spacing: 0.02em;
+        text-align: center;
+      }
+    }
+
+    .progress-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .progress-track {
+        width: 100%;
+        height: 6px;
+        background: #f1f5f9;
+        border-radius: 9999px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid #e2e8f0;
+
+        .progress-fill {
+          height: 100%;
+          background: linear-gradient(90deg, #2563eb, #d97706);
+          border-radius: 9999px;
+          transition: width 0.15s ease-out;
+          box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+        }
+      }
+
+      .progress-digits {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.78rem;
+
+        .percentage {
+          font-weight: 700;
+          color: #0f172a;
+          font-variant-numeric: tabular-nums;
+        }
+
+        .craftsmanship-state {
+          color: #64748b;
+          font-weight: 500;
+
+          .complete-msg {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #059669;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .preloader-subnote {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      text-align: center;
+      margin: 0;
+      line-height: 1.4;
+    }
+  }
+}
+
+// ==========================================
+// SVG ANIMATIONS & BAG ASSEMBLY TRANSITIONS
+// ==========================================
+
+.stage-svg {
+  // Ground Shadow
+  .ground-shadow {
+    fill: #000000;
+    opacity: 0.08;
+    transition: all 0.6s ease;
+  }
+
+  // Stitch Guide Line (self-assembly contour)
+  .stitch-contour {
+    fill: none;
+    stroke: #38bdf8;
+    stroke-width: 2;
+    stroke-dasharray: 6 6;
+    stroke-dashoffset: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: stitchDash 1.2s linear infinite;
+  }
+
+  // Base transition for every bag component
+  .bag-part {
+    transition:
+      transform 0.85s cubic-bezier(0.34, 1.4, 0.64, 1),
+      opacity 0.6s ease;
+  }
+
+  .bag-group {
+    transform-origin: 450px 380px;
+    transition: transform 0.8s cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+
+  // Assembly Sparkles
+  .assembly-sparkles {
+    opacity: 0;
+    transform-origin: 450px 250px;
+    transition: all 0.5s ease;
+  }
+
+  // Boy Character elements
+  .boy-group {
+    transform-origin: 280px 410px;
+    transition:
+      transform 0.9s cubic-bezier(0.25, 1, 0.5, 1),
+      opacity 0.5s ease;
+  }
+
+  .boy-right-arm {
+    transform-origin: 310px 258px;
+    transition: transform 0.6s cubic-bezier(0.34, 1.5, 0.64, 1);
+  }
+
+  .boy-hand {
+    transition: transform 0.6s ease;
+  }
+
+  .speech-bubble {
+    opacity: 0;
+    transform-origin: 280px 120px;
+    transform: scale(0.6) translateY(20px);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  // ----------------------------------------
+  // PHASE 1: DISASSEMBLED (PARTS FLOAT APART)
+  // ----------------------------------------
+  &.phase-disassembled {
+    .stitch-contour {
+      opacity: 0.6;
+    }
+
+    // Top grab handle hovering high
+    .part-handle {
+      transform: translate(0px, -70px) rotate(-10deg);
+      opacity: 0.85;
+    }
+
+    // Ergonomic back straps displaced behind
+    .part-straps-back {
+      transform: translate(0px, -40px) scale(1.12);
+      opacity: 0.7;
+    }
+
+    // Main backpack body floating slightly
+    .part-main-body {
+      transform: translateY(-15px) scale(0.96);
+      opacity: 0.9;
+    }
+
+    // Left water bottle pocket displaced outward
+    .part-left-pocket {
+      transform: translate(-65px, 20px) rotate(-14deg);
+      opacity: 0.8;
+    }
+
+    // Right umbrella pocket displaced outward
+    .part-right-pocket {
+      transform: translate(65px, 20px) rotate(14deg);
+      opacity: 0.8;
+    }
+
+    // Front stationery pocket hovering in front
+    .part-front-pocket {
+      transform: translate(0px, 60px) scale(0.9);
+      opacity: 0.85;
+    }
+
+    // Boy is offstage
+    .boy-group {
+      transform: translateX(-400px);
+      opacity: 0;
+    }
+  }
+
+  // ----------------------------------------
+  // PHASE 2: ASSEMBLING (SNAPPING TOGETHER)
+  // ----------------------------------------
+  &.phase-assembling {
+    .stitch-contour {
+      opacity: 0.9;
+      stroke: #d97706;
+      stroke-width: 2.5;
+    }
+
+    // All parts fly inward to their docking coordinates
+    .part-handle {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+    }
+    .part-straps-back {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    .part-main-body {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    .part-left-pocket {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+    }
+    .part-right-pocket {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+    }
+    .part-front-pocket {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+
+    .boy-group {
+      transform: translateX(-350px);
+      opacity: 0;
+    }
+  }
+
+  // ----------------------------------------
+  // PHASE 3: ASSEMBLED (PERFECT SCHOOL BAG)
+  // ----------------------------------------
+  &.phase-assembled {
+    .stitch-contour {
+      opacity: 0;
+    }
+
+    // Complete bag levitates with pride
+    .bag-group {
+      transform: translateY(-10px);
+      animation: bagHover 2s ease-in-out infinite alternate;
+    }
+
+    .ground-shadow {
+      transform: scale(0.92);
+      opacity: 0.05;
+    }
+
+    // Sparkles burst on the finished bag
+    .assembly-sparkles {
+      opacity: 1;
+      animation: sparkleGleam 1.2s ease-out forwards;
+    }
+
+    .boy-group {
+      transform: translateX(-220px);
+      opacity: 0.4;
+    }
+  }
+
+  // ----------------------------------------
+  // PHASE 4: BOY ARRIVES (STEPS UP TO BAG)
+  // ----------------------------------------
+  &.phase-boy-arrives {
+    .stitch-contour {
+      opacity: 0;
+    }
+
+    // Bag rests stably on ground
+    .bag-group {
+      transform: translateY(0);
+    }
+
+    // Boy steps into place next to the bag
+    .boy-group {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    // Boy leg walk cycle
+    .boy-legs {
+      animation: boyWalkStep 0.6s ease-in-out;
+    }
+
+    // Right arm starts reaching toward the bag's handle
+    .boy-right-arm {
+      transform: rotate(-10deg) translate(10px, -5px);
+    }
+  }
+
+  // ----------------------------------------
+  // PHASE 5: BOY TAKES BAG (PICKS UP & READY)
+  // ----------------------------------------
+  &.phase-boy-takes,
+  &.phase-done {
+    .stitch-contour {
+      opacity: 0;
+    }
+
+    // Boy is in position
+    .boy-group {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    // Right arm grabs handle and lifts
+    .boy-right-arm {
+      transform: rotate(-22deg) translate(25px, -20px);
+    }
+
+    // The bag is lifted by the boy and swings up toward his side/shoulder!
+    .bag-group {
+      transform: translate(-45px, -35px) rotate(-14deg) scale(0.96);
+      filter: drop-shadow(0 18px 24px rgba(15, 23, 42, 0.18));
+    }
+
+    .ground-shadow {
+      transform: translate(-30px, 0) scale(0.75);
+      opacity: 0.04;
+    }
+
+    // Speech bubble pops up: "Ready for School!"
+    .speech-bubble {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    // Confident smile & head nod
+    .boy-head {
+      transform-origin: 280px 230px;
+      animation: headNod 1s ease-in-out infinite alternate;
+    }
+  }
+}
+
+// Keyframe Animations
+@keyframes stitchDash {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 40;
+  }
+}
+
+@keyframes bagHover {
+  0% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes sparkleGleam {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(-20deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(15deg);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes boyWalkStep {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-5deg);
+  }
+  70% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes headNod {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes spin-pulse {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+// Responsive layout scaling for small screens & mobile
+@media (max-width: 768px) {
+  .velo-preloader-overlay {
+    padding: 16px 20px;
+
+    .preloader-stage-container {
+      height: 48vh;
+      min-height: 280px;
+
+      .stage-svg {
+        transform: scale(0.92);
+      }
+    }
+
+    .preloader-footer {
+      gap: 10px;
+
+      .status-badge {
+        padding: 5px 12px;
+        .status-label {
+          font-size: 0.74rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,154 @@
+.admin-add-product-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  .page-head-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #14151a;
+      border: 1px solid #23252e;
+      color: #9ca3af;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.8125rem;
+      cursor: pointer;
+
+      &:hover {
+        color: #ffffff;
+        border-color: #373a46;
+      }
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+  }
+
+  .product-form-card {
+    background: #15161b;
+    border: 1px solid #242630;
+    border-radius: 8px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .form-section {
+      border-bottom: 1px solid #242630;
+      padding-bottom: 28px;
+
+      &:last-of-type {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .section-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+    }
+
+    .fields-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+
+      .span-2 {
+        grid-column: span 2;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        label {
+          font-size: 0.75rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: #9ca3af;
+        }
+
+        input,
+        select,
+        textarea {
+          background: #0f1013;
+          border: 1px solid #252834;
+          border-radius: 6px;
+          padding: 10px 14px;
+          color: #ffffff;
+          font-size: 0.875rem;
+          outline: none;
+
+          &:focus {
+            border-color: #9a6233;
+          }
+        }
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #9ca3af;
+      }
+
+      textarea {
+        background: #0f1013;
+        border: 1px solid #252834;
+        border-radius: 6px;
+        padding: 12px 14px;
+        color: #ffffff;
+        font-size: 0.875rem;
+        outline: none;
+
+        &:focus {
+          border-color: #9a6233;
+        }
+      }
+    }
+
+    .form-submit-row {
+      display: flex;
+      justify-content: flex-end;
+
+      .btn-save-product {
+        background: #9a6233;
+        color: #ffffff;
+        padding: 14px 28px;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        transition: background 0.15s;
+
+        &:hover {
+          background: #b2733d;
+        }
+      }
+    }
+  }
+}

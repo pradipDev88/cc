@@ -1,0 +1,209 @@
+@import "../../styles/global.scss";
+
+.site-footer {
+  background-color: #121316;
+  color: #d1d5db;
+  margin-top: $space-16;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  a {
+    color: #9ca3af;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+.footer-pillars {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: $space-10 0;
+  background: rgba(255, 255, 255, 0.02);
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: $space-6;
+  }
+
+  .pillar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-4;
+
+    .pillar-icon {
+      color: $accent-bronze;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pillar-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .pillar-desc {
+      font-size: 0.8125rem;
+      color: #9ca3af;
+      line-height: 1.45;
+    }
+  }
+}
+
+.footer-main {
+  padding: $space-12 0;
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-8;
+
+    @media (min-width: $bp-tablet) {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    @media (min-width: $bp-desktop) {
+      grid-template-columns: 3fr 1.5fr 1.5fr 1.5fr 1.5fr;
+    }
+  }
+
+  .footer-brand-col {
+    .footer-logo {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: $space-4;
+
+      .logo-main {
+        font-family: $font-serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+      }
+      .logo-sub {
+        font-size: 0.75rem;
+        letter-spacing: 0.25em;
+        color: $accent-bronze;
+        font-weight: 600;
+      }
+    }
+
+    .brand-manifesto {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: #9ca3af;
+      max-width: 380px;
+      margin-bottom: $space-6;
+    }
+
+    .newsletter-box {
+      .newsletter-title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: $space-2;
+      }
+
+      .newsletter-form {
+        display: flex;
+        align-items: center;
+        max-width: 360px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: $radius-sm;
+
+        input {
+          flex: 1;
+          background: transparent;
+          border: none;
+          padding: 10px 14px;
+          color: #ffffff;
+          font-size: 0.875rem;
+          outline: none;
+
+          &::placeholder {
+            color: #6b7280;
+          }
+        }
+
+        .newsletter-btn {
+          padding: 10px 14px;
+          color: $accent-bronze;
+          transition: transform $transition-fast;
+
+          &:hover {
+            transform: translateX(3px);
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-links-col {
+    .footer-col-title {
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: $space-4;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      li a {
+        font-size: 0.875rem;
+        color: #9ca3af;
+
+        &:hover {
+          color: #ffffff;
+          padding-left: 2px;
+        }
+      }
+    }
+  }
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: $space-6 0;
+
+  .bottom-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+
+    @media (min-width: $bp-tablet) {
+      flex-direction: row;
+    }
+
+    .copyright {
+      font-size: 0.8125rem;
+      color: #6b7280;
+    }
+
+    .bottom-meta-links {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      font-size: 0.8125rem;
+      color: #6b7280;
+
+      .dot {
+        font-size: 0.6rem;
+      }
+    }
+  }
+}

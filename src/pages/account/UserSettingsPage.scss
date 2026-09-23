@@ -1,0 +1,85 @@
+@import "../../styles/global.scss";
+
+.user-settings-page {
+  .page-header {
+    margin-bottom: $space-8;
+    .lead-text {
+      font-size: 0.9375rem;
+      color: $text-muted;
+      margin-top: 4px;
+    }
+  }
+
+  .settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-8;
+
+    .form-section {
+      border-bottom: 1px solid $border-light;
+      padding-bottom: $space-8;
+
+      &:last-of-type {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .section-title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-bottom: $space-4;
+      }
+    }
+
+    .inputs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: $space-4;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        label {
+          font-size: 0.75rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: $text-muted;
+        }
+
+        input {
+          padding: 10px 14px;
+          border: 1px solid $border;
+          border-radius: $radius-sm;
+          font-size: 0.9375rem;
+          outline: none;
+
+          &:focus {
+            border-color: $primary;
+          }
+        }
+      }
+    }
+
+    .checkboxes-stack {
+      display: flex;
+      flex-direction: column;
+      gap: $space-3;
+
+      .pref-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.875rem;
+        color: $text;
+        cursor: pointer;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

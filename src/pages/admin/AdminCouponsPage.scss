@@ -1,0 +1,29 @@
+.admin-coupons-page {
+  .coupons-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .coupon-create-form {
+    background: #15161b;
+    border: 1px solid #242630;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .coupons-table-card {
+    background: #15161b;
+    border: 1px solid #242630;
+    border-radius: 8px;
+    padding: 24px;
+    overflow-x: auto;
+  }
+}

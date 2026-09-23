@@ -1,0 +1,351 @@
+// SCSS Variables & Design Tokens
+$font-sans:
+  "Plus Jakarta Sans",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+$font-serif: "DM Serif Display", Georgia, serif;
+
+// Brand Colors
+$primary: #121316; // Deep Obsidian Black
+$primary-light: #27272a;
+$secondary: #8b5cf6;
+$accent-bronze: #9a6233; // Burnished Cognac
+$accent-amber: #d97706;
+$accent-gold: #c59b27;
+
+// Neutrals
+$bg-body: #ffffff; // Pure White Background for all pages
+$surface: #ffffff;
+$surface-subtle: #f9fafb; // Crisp light grey for subtle contrast cards
+$surface-card: #ffffff;
+$surface-dark: #18191d;
+
+$text: #17171a;
+$text-muted: #6b7280;
+$text-light: #9ca3af;
+$text-inverse: #f9fafb;
+
+$border: #e5e7eb;
+$border-light: #f3f4f6;
+$border-dark: #2e3039;
+
+// Status
+$success: #15803d;
+$success-bg: #f0fdf4;
+$warning: #b45309;
+$warning-bg: #fffbeb;
+$error: #b91c1c;
+$error-bg: #fef2f2;
+$info: #1d4ed8;
+$info-bg: #eff6ff;
+
+// Spacing Scale
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-6: 24px;
+$space-8: 32px;
+$space-10: 40px;
+$space-12: 48px;
+$space-16: 64px;
+$space-20: 80px;
+$space-24: 96px;
+
+// Radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 14px;
+$radius-xl: 20px;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md:
+  0 4px 6px -1px rgba(0, 0, 0, 0.08),
+  0 2px 4px -2px rgba(0, 0, 0, 0.05);
+$shadow-lg:
+  0 10px 15px -3px rgba(0, 0, 0, 0.08),
+  0 4px 6px -4px rgba(0, 0, 0, 0.04);
+$shadow-xl:
+  0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 8px 10px -6px rgba(0, 0, 0, 0.04);
+$shadow-card: 0 4px 20px rgba(0, 0, 0, 0.04);
+
+// Transitions
+$transition-fast: 0.15s ease-in-out;
+$transition-base: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1280px;
+
+// CSS Variables root
+:root {
+  --font-sans: #{$font-sans};
+  --font-serif: #{$font-serif};
+
+  --color-primary: #{$primary};
+  --color-primary-light: #{$primary-light};
+  --color-accent-bronze: #{$accent-bronze};
+  --color-accent-amber: #{$accent-amber};
+
+  --bg-body: #{$bg-body};
+  --surface: #{$surface};
+  --surface-subtle: #{$surface-subtle};
+  --surface-card: #{$surface-card};
+
+  --text: #{$text};
+  --text-muted: #{$text-muted};
+  --text-light: #{$text-light};
+  --text-inverse: #{$text-inverse};
+
+  --border: #{$border};
+  --border-light: #{$border-light};
+
+  --success: #{$success};
+  --warning: #{$warning};
+  --error: #{$error};
+}
+
+// Reset & Base
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  font-family: $font-sans;
+  background-color: $bg-body;
+  color: $text;
+  line-height: 1.5;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  position: relative;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.storefront-main-viewport {
+  min-height: calc(100vh - 280px);
+
+  @media (max-width: 1023px) {
+    padding-bottom: 72px; // Clear the mobile bottom fixed navigation bar
+  }
+}
+
+// Global Typography Classes
+.font-serif {
+  font-family: $font-serif;
+  letter-spacing: -0.02em;
+}
+
+.heading-display {
+  font-family: $font-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.heading-1 {
+  font-family: $font-serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.15;
+  font-weight: 400;
+}
+
+.heading-2 {
+  font-family: $font-sans;
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.heading-3 {
+  font-family: $font-sans;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.text-muted {
+  color: $text-muted;
+}
+
+// Containers
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 $space-4;
+
+  @media (min-width: $bp-tablet) {
+    padding: 0 $space-6;
+  }
+  @media (min-width: $bp-desktop) {
+    padding: 0 $space-8;
+  }
+}
+
+// Global Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 12px 24px;
+  border-radius: $radius-sm;
+  transition: all $transition-base;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &-primary {
+    background-color: $primary;
+    color: #ffffff;
+    border: 1px solid $primary;
+
+    &:hover {
+      background-color: #2a2b30;
+      border-color: #2a2b30;
+      transform: translateY(-1px);
+    }
+  }
+
+  &-secondary {
+    background-color: transparent;
+    color: $primary;
+    border: 1px solid $primary;
+
+    &:hover {
+      background-color: $primary;
+      color: #ffffff;
+    }
+  }
+
+  &-accent {
+    background-color: $accent-bronze;
+    color: #ffffff;
+    border: 1px solid $accent-bronze;
+
+    &:hover {
+      background-color: darken($accent-bronze, 8%);
+    }
+  }
+
+  &-outline {
+    background: transparent;
+    border: 1px solid $border;
+    color: $text;
+
+    &:hover {
+      border-color: $primary;
+      background: $surface;
+    }
+  }
+
+  &-sm {
+    padding: 6px 14px;
+    font-size: 0.8125rem;
+  }
+
+  &-lg {
+    padding: 16px 32px;
+    font-size: 1rem;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// Badges
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: $radius-sm;
+  text-transform: uppercase;
+
+  &-bestseller {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  &-new {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+  &-sale {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  &-limited {
+    background-color: #f3e8ff;
+    color: #6b21a8;
+  }
+}

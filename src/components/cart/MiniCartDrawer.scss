@@ -1,0 +1,310 @@
+@import "../../styles/global.scss";
+
+.mini-cart-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 3000;
+  display: flex;
+  justify-content: flex-end;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.mini-cart-drawer {
+  width: 440px;
+  max-width: 92vw;
+  height: 100%;
+  background: $surface;
+  box-shadow: $shadow-xl;
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-4 $space-6;
+  border-bottom: 1px solid $border-light;
+
+  .title-area {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    color: $primary;
+
+    .drawer-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+  }
+
+  .drawer-close-btn {
+    color: $text-muted;
+    padding: 4px;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.shipping-progress-banner {
+  background: $surface-subtle;
+  padding: $space-3 $space-6;
+  border-bottom: 1px solid $border-light;
+
+  .shipping-hint {
+    font-size: 0.8125rem;
+    color: $text;
+    margin-bottom: 6px;
+
+    &.unlocked {
+      color: #166534;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+  }
+
+  .progress-bar-track {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: $radius-full;
+    overflow: hidden;
+
+    .progress-bar-fill {
+      height: 100%;
+      background: $accent-bronze;
+      border-radius: $radius-full;
+      transition: width 0.4s ease;
+    }
+  }
+}
+
+.drawer-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: $space-4 $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+
+  .empty-cart-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    gap: $space-3;
+    padding: $space-8 0;
+
+    .empty-icon {
+      color: $text-light;
+    }
+
+    h4 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: $text;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: $text-muted;
+      max-width: 260px;
+    }
+  }
+
+  .cart-card {
+    display: flex;
+    gap: $space-4;
+    padding-bottom: $space-4;
+    border-bottom: 1px solid $border-light;
+
+    .cart-item-image {
+      width: 80px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: $radius-sm;
+      background: $surface-subtle;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .info-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .cart-brand {
+          font-size: 0.6875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: $accent-bronze;
+          font-weight: 700;
+        }
+
+        .item-remove-btn {
+          color: $text-light;
+          transition: color $transition-fast;
+
+          &:hover {
+            color: $error;
+          }
+        }
+      }
+
+      .cart-name {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: $text;
+        line-height: 1.35;
+        margin: 2px 0 4px;
+
+        &:hover {
+          color: $accent-bronze;
+        }
+      }
+
+      .cart-variant-label {
+        font-size: 0.75rem;
+        color: $text-muted;
+        margin-bottom: $space-3;
+
+        span {
+          color: $text;
+          font-weight: 500;
+        }
+      }
+
+      .cart-qty-price-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+
+        .qty-controls {
+          display: flex;
+          align-items: center;
+          border: 1px solid $border;
+          border-radius: $radius-sm;
+
+          .qty-btn {
+            padding: 4px 8px;
+            color: $text-muted;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover:not(:disabled) {
+              color: $primary;
+              background: $surface-subtle;
+            }
+          }
+
+          .qty-val {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            padding: 0 8px;
+          }
+        }
+
+        .price-stack {
+          display: flex;
+          align-items: baseline;
+          gap: 6px;
+
+          .current-price {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            color: $primary;
+          }
+
+          .original-price {
+            font-size: 0.75rem;
+            color: $text-light;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+}
+
+.drawer-footer {
+  padding: $space-4 $space-6;
+  border-top: 1px solid $border-light;
+  background: $surface;
+
+  .subtotal-row,
+  .shipping-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: $text-muted;
+    margin-bottom: 6px;
+
+    .value {
+      color: $text;
+      font-weight: 600;
+    }
+  }
+
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: $space-2;
+    padding-top: $space-2;
+    border-top: 1px dashed $border;
+    margin-bottom: $space-4;
+
+    .total-label {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $primary;
+    }
+
+    .total-amount {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: $primary;
+    }
+  }
+
+  .drawer-actions {
+    display: flex;
+    gap: $space-3;
+
+    .view-cart-btn {
+      flex: 1;
+      padding: 12px;
+      font-size: 0.8125rem;
+    }
+
+    .checkout-btn {
+      flex: 1.5;
+      padding: 12px;
+      font-size: 0.8125rem;
+    }
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

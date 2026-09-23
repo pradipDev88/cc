@@ -1,0 +1,107 @@
+@import "../../styles/global.scss";
+
+.order-success-page {
+  padding-top: $space-12;
+  padding-bottom: $space-20;
+  display: flex;
+  justify-content: center;
+}
+
+.success-banner-card {
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+  padding: $space-10 $space-6;
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+  box-shadow: $shadow-xl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .success-icon-wrap {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #f0fdf4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $space-4;
+
+    .check-icon {
+      color: #166534;
+    }
+  }
+
+  .success-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $accent-bronze;
+    margin-bottom: 4px;
+  }
+
+  .success-title {
+    margin-bottom: $space-3;
+  }
+
+  .success-desc {
+    font-size: 0.9375rem;
+    color: $text-muted;
+    line-height: 1.55;
+    max-width: 520px;
+    margin-bottom: $space-8;
+  }
+
+  .order-metadata-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-4;
+    background: $surface-subtle;
+    border: 1px solid $border-light;
+    border-radius: $radius-md;
+    padding: $space-6;
+    width: 100%;
+    margin-bottom: $space-8;
+
+    @media (min-width: $bp-tablet) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .meta-col {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      .label {
+        font-size: 0.6875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $text-muted;
+      }
+
+      .val {
+        font-size: 1rem;
+        color: $text;
+        font-weight: 700;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .success-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-4;
+    justify-content: center;
+    width: 100%;
+
+    a {
+      flex: 1;
+      min-width: 200px;
+    }
+  }
+}

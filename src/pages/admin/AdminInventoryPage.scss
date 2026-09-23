@@ -1,0 +1,168 @@
+.admin-inventory-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .page-head-row {
+    .pre-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #9a6233;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+  }
+
+  .inventory-summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+
+    .inv-card {
+      background: #15161b;
+      border: 1px solid #242630;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+
+      &.warning {
+        border-color: rgba(245, 158, 11, 0.4);
+      }
+
+      .inv-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: #9ca3af;
+        font-weight: 600;
+      }
+
+      .inv-val {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: #ffffff;
+        margin: 6px 0;
+      }
+
+      .inv-sub {
+        font-size: 0.75rem;
+        color: #6b7280;
+      }
+    }
+  }
+
+  .inventory-table-card {
+    background: #15161b;
+    border: 1px solid #242630;
+    border-radius: 8px;
+    overflow-x: auto;
+
+    .inv-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.8125rem;
+
+      thead {
+        background: #101115;
+        border-bottom: 1px solid #242630;
+
+        th {
+          padding: 12px 18px;
+          font-size: 0.6875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          color: #6b7280;
+          font-weight: 700;
+        }
+      }
+
+      tbody tr {
+        border-bottom: 1px solid #1e2028;
+
+        &:hover {
+          background: #1a1c22;
+        }
+
+        td {
+          padding: 14px 18px;
+          color: #d1d5db;
+        }
+
+        .cell-sku {
+          font-family: monospace;
+          color: #9ca3af;
+        }
+
+        .cell-name-box {
+          display: flex;
+          flex-direction: column;
+
+          strong {
+            color: #ffffff;
+          }
+
+          span {
+            font-size: 0.75rem;
+            color: #6b7280;
+          }
+        }
+
+        .stock-count {
+          font-weight: 700;
+          color: #ffffff;
+
+          &.urgent {
+            color: #ef4444;
+          }
+        }
+
+        .cell-burn {
+          color: #9ca3af;
+        }
+
+        .runway-pill {
+          display: inline-block;
+          background: #232530;
+          color: #10b981;
+          padding: 3px 8px;
+          border-radius: 4px;
+          font-weight: 700;
+          font-size: 0.75rem;
+
+          &.urgent {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+          }
+        }
+
+        .btn-restock {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: #1e2028;
+          border: 1px solid #282a35;
+          color: #ffffff;
+          padding: 6px 12px;
+          border-radius: 4px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          cursor: pointer;
+
+          &:hover {
+            background: #9a6233;
+            border-color: #9a6233;
+          }
+        }
+      }
+    }
+  }
+}

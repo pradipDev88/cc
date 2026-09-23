@@ -1,0 +1,20 @@
+@import "../styles/global.scss";
+
+.storefront-app-shell {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.storefront-main-viewport {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  position: relative;
+  padding-top: 10px;
+}

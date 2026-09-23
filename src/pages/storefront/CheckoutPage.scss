@@ -1,0 +1,453 @@
+@import "../../styles/global.scss";
+
+.checkout-page-container {
+  padding-top: $space-8;
+  padding-bottom: $space-20;
+}
+
+.checkout-empty {
+  text-align: center;
+  padding: $space-16 0;
+}
+
+// Step Progress Tracker
+.checkout-steps-tracker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 680px;
+  margin: 0 auto $space-10;
+
+  .step-node {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.45;
+    transition: opacity $transition-fast;
+
+    &.active {
+      opacity: 1;
+
+      .step-num {
+        background: $primary;
+        color: #ffffff;
+      }
+
+      .step-title {
+        font-weight: 700;
+        color: $primary;
+      }
+    }
+
+    &.completed {
+      opacity: 1;
+
+      .step-num {
+        background: #166534;
+        color: #ffffff;
+      }
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: $border;
+      color: $text;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8125rem;
+      font-weight: 700;
+    }
+
+    .step-title {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .step-divider {
+    flex: 1;
+    height: 2px;
+    background: $border;
+    margin: 0 $space-4;
+  }
+}
+
+// Grid Layout
+.checkout-main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-8;
+
+  @media (min-width: $bp-desktop) {
+    grid-template-columns: 1.8fr 1.1fr;
+  }
+}
+
+// Left Step Section
+.checkout-step-section {
+  background: $surface;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  padding: $space-8;
+
+  .step-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: $space-6;
+    padding-bottom: $space-3;
+    border-bottom: 1px solid $border-light;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-4;
+    margin-bottom: $space-8;
+
+    @media (max-width: 580px) {
+      grid-template-columns: 1fr;
+    }
+
+    .span-2 {
+      grid-column: span 2;
+
+      @media (max-width: 580px) {
+        grid-column: span 1;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $text-muted;
+      }
+
+      input {
+        padding: 10px 14px;
+        border: 1px solid $border;
+        border-radius: $radius-sm;
+        font-size: 0.9375rem;
+        outline: none;
+
+        &:focus {
+          border-color: $primary;
+        }
+      }
+    }
+  }
+
+  .delivery-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    margin-bottom: $space-8;
+
+    .delivery-card {
+      display: flex;
+      align-items: flex-start;
+      gap: $space-4;
+      padding: $space-4;
+      border: 1.5px solid $border;
+      border-radius: $radius-md;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &.active {
+        border-color: $primary;
+        background: $surface-subtle;
+      }
+
+      input {
+        margin-top: 4px;
+      }
+
+      .delivery-meta {
+        flex: 1;
+
+        .delivery-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          margin-bottom: 4px;
+
+          .method-name {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            color: $text;
+          }
+
+          .method-price {
+            font-size: 0.9375rem;
+            font-weight: 800;
+            color: $primary;
+          }
+        }
+
+        .delivery-eta {
+          font-size: 0.8125rem;
+          color: $text-muted;
+        }
+      }
+    }
+  }
+
+  .payment-gateways-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    margin-bottom: $space-8;
+
+    .payment-card {
+      border: 1.5px solid $border;
+      border-radius: $radius-md;
+      padding: $space-4;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &.active {
+        border-color: $primary;
+        background: $surface-subtle;
+      }
+
+      .payment-head {
+        display: flex;
+        align-items: center;
+        gap: $space-3;
+
+        .pay-icon {
+          color: $accent-bronze;
+        }
+
+        .method-title {
+          font-size: 0.9375rem;
+          font-weight: 700;
+          color: $text;
+        }
+      }
+
+      .payment-expanded-body {
+        margin-top: $space-4;
+        padding-top: $space-3;
+        border-top: 1px dashed $border;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        label {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: $text-muted;
+          text-transform: uppercase;
+        }
+
+        input {
+          padding: 10px 14px;
+          border: 1px solid $border;
+          border-radius: $radius-sm;
+          font-size: 0.9375rem;
+          max-width: 380px;
+        }
+
+        .sub-hint {
+          font-size: 0.75rem;
+          color: $text-muted;
+        }
+
+        .card-mock-notice {
+          font-size: 0.8125rem;
+          color: $text-muted;
+        }
+      }
+    }
+  }
+
+  .review-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    margin-bottom: $space-8;
+
+    .review-box {
+      background: $surface-subtle;
+      padding: $space-4;
+      border-radius: $radius-md;
+
+      h4 {
+        font-size: 0.8125rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $accent-bronze;
+        margin-bottom: 6px;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: $text;
+        line-height: 1.45;
+      }
+    }
+  }
+
+  .step-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $space-6;
+    border-top: 1px solid $border-light;
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      color: $text-muted;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    .place-order-final-btn {
+      flex: 1;
+      max-width: 380px;
+      margin-left: auto;
+    }
+  }
+}
+
+// Right Sticky Summary
+.checkout-sidebar-panel {
+  .checkout-cart-summary {
+    background: $surface;
+    border: 1px solid $border-light;
+    border-radius: $radius-md;
+    padding: $space-6;
+
+    .summary-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: $space-4;
+      padding-bottom: $space-3;
+      border-bottom: 1px solid $border-light;
+    }
+
+    .items-mini-list {
+      display: flex;
+      flex-direction: column;
+      gap: $space-3;
+      margin-bottom: $space-6;
+      max-height: 280px;
+      overflow-y: auto;
+
+      .mini-item {
+        display: flex;
+        gap: $space-3;
+        align-items: center;
+
+        .mini-thumb {
+          width: 50px;
+          height: 60px;
+          object-fit: cover;
+          border-radius: $radius-sm;
+        }
+
+        .mini-meta {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+
+          .mini-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: $text;
+          }
+
+          .mini-qty {
+            font-size: 0.75rem;
+            color: $text-muted;
+          }
+
+          .mini-price {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            color: $primary;
+          }
+        }
+      }
+    }
+
+    .cost-breakdown {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-top: $space-4;
+      border-top: 1px solid $border-light;
+      margin-bottom: $space-6;
+
+      .cost-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.875rem;
+        color: $text-muted;
+
+        span:last-child {
+          color: $text;
+          font-weight: 600;
+        }
+
+        &.discount {
+          color: #166534;
+          span:last-child {
+            color: #166534;
+          }
+        }
+      }
+
+      .cost-total-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding-top: $space-3;
+        border-top: 1px dashed $border;
+        margin-top: 4px;
+
+        span:first-child {
+          font-size: 1rem;
+          font-weight: 700;
+          color: $primary;
+        }
+
+        span:last-child {
+          font-size: 1.35rem;
+          font-weight: 800;
+          color: $primary;
+        }
+      }
+    }
+
+    .pci-compliance {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: $text-muted;
+      line-height: 1.35;
+
+      svg {
+        color: $accent-bronze;
+        flex-shrink: 0;
+      }
+    }
+  }
+}

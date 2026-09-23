@@ -1,0 +1,113 @@
+@import "../../styles/global.scss";
+
+.product-card-skeleton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+  border-radius: $radius-md;
+  overflow: hidden;
+  border: 1px solid #f1f5f9;
+  box-sizing: border-box;
+
+  .skeleton-media-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 50%, #f1f5f9 100%);
+    background-size: 200% 100%;
+    animation: skeletonShimmer 1.5s infinite;
+
+    .skeleton-badge-pill {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 56px;
+      height: 18px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .skeleton-wishlist-circle {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  .skeleton-info-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #ffffff;
+
+    .skeleton-line {
+      border-radius: 4px;
+      background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 50%, #f1f5f9 100%);
+      background-size: 200% 100%;
+      animation: skeletonShimmer 1.5s infinite;
+    }
+
+    .skeleton-brand {
+      width: 35%;
+      height: 10px;
+    }
+
+    .skeleton-title {
+      width: 85%;
+      height: 14px;
+    }
+
+    .skeleton-title-short {
+      width: 55%;
+      height: 14px;
+    }
+
+    .skeleton-swatches {
+      display: flex;
+      gap: 6px;
+      margin: 4px 0;
+
+      .skeleton-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #e2e8f0;
+        animation: skeletonShimmer 1.5s infinite;
+      }
+    }
+
+    .skeleton-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+
+      .skeleton-price {
+        width: 40%;
+        height: 18px;
+      }
+
+      .skeleton-rating {
+        width: 25%;
+        height: 14px;
+      }
+    }
+  }
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
