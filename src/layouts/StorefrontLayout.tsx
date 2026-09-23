@@ -6,6 +6,7 @@ import { Footer } from '../components/storefront/Footer';
 import { MiniCartDrawer } from '../components/cart/MiniCartDrawer';
 import { ToastContainer } from '../components/common/ToastContainer';
 import { MobileBottomNav } from '../components/storefront/MobileBottomNav';
+import { BackToTop } from '../components/common/BackToTop';
 import './StorefrontLayout.scss';
 
 export const StorefrontLayout: React.FC = () => {
@@ -19,6 +20,7 @@ export const StorefrontLayout: React.FC = () => {
       <Footer />
       <MiniCartDrawer />
       <MobileBottomNav />
+      <BackToTop />
       <ToastContainer />
     </div>
   );

@@ -22,6 +22,8 @@
   justify-content: space-between;
   height: 76px;
   position: relative;
+  gap: clamp(8px, 1.2vw, 24px);
+  padding: 0 clamp(10px, 1.8vw, 32px);
 }
 
 .mobile-menu-btn {
@@ -30,6 +32,7 @@
   justify-content: center;
   padding: $space-2;
   color: $primary;
+  flex-shrink: 0;
 
   @media (min-width: $bp-desktop) {
     display: none;
@@ -42,6 +45,7 @@
   gap: 5px;
   user-select: none;
   text-decoration: none;
+  flex-shrink: 0;
 
   .brand-primary {
     font-family: $font-serif;
@@ -71,14 +75,14 @@
     line-height: 1;
 
     .brand-primary {
-      font-size: 1.55rem;
-      letter-spacing: 0.14em;
+      font-size: clamp(1.35rem, 1.55vw, 1.55rem);
+      letter-spacing: 0.12em;
       line-height: 0.9;
     }
 
     .brand-secondary {
-      font-size: 0.7rem;
-      letter-spacing: 0.32em;
+      font-size: clamp(0.62rem, 0.68vw, 0.7rem);
+      letter-spacing: 0.28em;
       line-height: 1;
       padding-left: 1px;
     }
@@ -88,6 +92,9 @@
 .desktop-nav {
   display: none;
   height: 100%;
+  flex: 1 1 auto;
+  justify-content: center;
+  min-width: 0;
 
   @media (min-width: $bp-desktop) {
     display: flex;
@@ -96,23 +103,26 @@
 
   .nav-list {
     display: flex;
+    align-items: center;
     height: 100%;
-    gap: $space-6;
+    gap: clamp(6px, 1.05vw, 22px);
   }
 
   .nav-item {
     display: flex;
     align-items: center;
     height: 100%;
+    flex-shrink: 0;
   }
 
   .nav-link {
-    font-size: 0.8125rem;
+    font-size: clamp(0.6875rem, 0.76vw, 0.8125rem);
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: clamp(0.02em, 0.04vw, 0.05em);
     text-transform: uppercase;
     color: $text;
-    padding: 8px 6px;
+    padding: 8px clamp(2px, 0.35vw, 6px);
+    white-space: nowrap;
     position: relative;
     transition: color $transition-fast;
 
@@ -309,15 +319,16 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: $space-3;
+  flex-shrink: 0;
+  gap: clamp(6px, 0.8vw, 14px);
 
   @media (min-width: $bp-tablet) {
-    gap: $space-4;
+    gap: clamp(8px, 1.1vw, 16px);
   }
 
   .action-btn {
     position: relative;
-    padding: 8px;
+    padding: clamp(6px, 0.6vw, 8px);
     color: $primary;
     border-radius: 50%;
     transition: all $transition-fast;
