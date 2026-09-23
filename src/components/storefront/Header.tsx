@@ -147,11 +147,18 @@ export const Header: React.FC = () => {
       subcategories: ['Weekender Duffles', 'Hard Shell Spinners', 'Cabin Trolleys', 'Travel Organizers']
     },
     {
-      title: 'Accessories',
-      slug: 'accessories',
-      desc: 'Slim RFID wallets, tech organizing pouches & luggage tags.',
-      featuredImage: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=600&auto=format&fit=crop',
-      subcategories: ['RFID Wallets', 'Tech Organizers', 'Passport Folios', 'Luggage Tags']
+      title: 'Exported',
+      slug: 'exported',
+      desc: 'International surplus & heavy-duty global specification bags.',
+      featuredImage: 'https://images.unsplash.com/photo-1546938576-6e6a64f317cc?q=80&w=600&auto=format&fit=crop',
+      subcategories: ['Global Standard Backpacks', 'Export Surplus Travel Bags', 'Heavy-Duty Tech Packs', 'Military Grade Rucksacks']
+    },
+    {
+      title: 'Generic',
+      slug: 'generic',
+      desc: 'Clean, unbranded essential backpacks & daily utility carry bags.',
+      featuredImage: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600&auto=format&fit=crop',
+      subcategories: ['Plain Solid Backpacks', 'Minimalist Campus Bags', 'Daily Utility Packs', 'Budget Commuter Bags']
     }
   ];
 

@@ -9,7 +9,9 @@ export type BagCategory =
   | 'travel-bags'
   | 'duffle-bags'
   | 'trolley-bags'
-  | 'accessories';
+  | 'accessories'
+  | 'exported'
+  | 'generic';
 
 export type BagCapacity = 'Under 10L' | '10-20L' | '20-30L' | '30-40L' | '40L+';
 export type LaptopSize = 'None' | '11"' | '13"' | '14"' | '15.6"' | '16"' | '17"';

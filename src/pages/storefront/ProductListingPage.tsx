@@ -115,6 +115,8 @@ export const ProductListingPage: React.FC = () => {
     { label: 'Laptop Tech Packs', value: 'laptop-bags' },
     { label: 'Office Briefcases', value: 'office-bags' },
     { label: 'Backpacks & Daypacks', value: 'backpacks' },
+    { label: 'Exported Bags', value: 'exported' },
+    { label: 'Generic Bags', value: 'generic' },
     { label: 'Sculpted Handbags', value: 'handbags' },
     { label: 'Modular Crossbody Slings', value: 'sling-bags' },
     { label: 'Weekender Duffles', value: 'duffle-bags' },

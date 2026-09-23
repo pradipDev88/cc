@@ -1780,6 +1780,226 @@ export const INITIAL_PRODUCTS: Product[] = [
     isBestSeller: true,
     isNewArrival: false,
     createdAt: '2024-02-12'
+  },
+
+  // 30. Exported Bag 1
+  {
+    id: 'prod-exported-01',
+    slug: 'velo-global-export-spec-tactical-backpack',
+    name: 'Velo Global Export-Spec Heavy-Duty Backpack',
+    subtitle: 'Built for international military and cargo durability standards',
+    brand: 'VELO EXPORT DIVISION',
+    category: 'exported',
+    subcategory: 'Global Standard Backpacks',
+    collections: ['best-sellers', 'back-to-school'],
+    badges: ['BESTSELLER', 'NEW'],
+    description: 'Engineered for overseas contract specifications. Features 1050D military-grade ballistic nylon, double-reinforced stress seams, modular MOLLE attachment loops, and water-sealed zippers.',
+    features: ['1050D Ballistic Nylon', 'MOLLE Attachment Points', 'TSA Drop-Proof Laptop Bay', 'Reinforced Grab Handles'],
+    specifications: {
+      material: 'Ballistic Nylon',
+      waterResistance: 'Waterproof',
+      laptopCompatibility: '16"',
+      capacityCategory: '30-40L',
+      compartmentsCount: 5,
+      closureType: 'YKK Aquaguard Zippers',
+      handleType: 'Reinforced Webbing',
+      strapType: 'Heavy-Duty Contoured Harness',
+      warranty: '5-Year International Warranty',
+      countryOfOrigin: 'India'
+    },
+    dimensions: { heightCm: 48, widthCm: 34, depthCm: 22, weightGrams: 920, volumeLiters: 35 },
+    capacityVisualDescription: 'Fits 16" laptop, tablet, heavy field gear, documents, and 2-day travel apparel.',
+    variants: [
+      {
+        id: 'var-exp-1-blk',
+        colorName: 'Tactical Matte Black',
+        colorHex: '#0f172a',
+        capacity: '35L',
+        sku: 'VLO-EXP-01-BLK',
+        price: 2799,
+        originalPrice: 4499,
+        stock: 45,
+        images: [
+          'https://images.unsplash.com/photo-1546938576-6e6a64f317cc?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1200&auto=format&fit=crop'
+        ]
+      }
+    ],
+    currentPrice: 2799,
+    originalPrice: 4499,
+    discountPercentage: 37,
+    totalStock: 45,
+    rating: 4.9,
+    reviewCount: 94,
+    isFeatured: true,
+    isBestSeller: true,
+    isNewArrival: true,
+    createdAt: '2024-03-01'
+  },
+
+  // 31. Exported Bag 2
+  {
+    id: 'prod-exported-02',
+    slug: 'endurance-overseas-35l-export-cargo-rucksack',
+    name: 'Endurance Overseas 32L Export Cargo Pack',
+    subtitle: 'High-tensile Cordura with dual side cinch load-compression straps',
+    brand: 'VELO EXPORT DIVISION',
+    category: 'exported',
+    subcategory: 'Heavy-Duty Tech Packs',
+    collections: ['best-sellers'],
+    badges: ['NEW'],
+    description: 'Designed for international logistics and rugged transit. Weatherproof exterior with reinforced PVC-coated bottom and ergonomic air-mesh spine pad.',
+    features: ['Cordura Weatherproof Outer', 'Dual Cinch Compression', 'Luggage Pass-Through Sleeve', 'Reflective Visibility Ribbons'],
+    specifications: {
+      material: 'Cordura Polyester',
+      waterResistance: 'Water Resistant',
+      laptopCompatibility: '15.6"',
+      capacityCategory: '30-40L',
+      compartmentsCount: 4,
+      closureType: 'Heavy-Duty Two-Way Zippers',
+      handleType: 'Cushioned Neoprene',
+      strapType: 'S-Curve Ergonomic Harness',
+      warranty: '3-Year Global Warranty',
+      countryOfOrigin: 'India'
+    },
+    dimensions: { heightCm: 47, widthCm: 32, depthCm: 20, weightGrams: 840, volumeLiters: 32 },
+    capacityVisualDescription: 'Fits textbooks, 15.6" laptop, tech charger, water bottles, and rain jacket.',
+    variants: [
+      {
+        id: 'var-exp-2-olv',
+        colorName: 'Military Olive',
+        colorHex: '#3f4f34',
+        capacity: '32L',
+        sku: 'VLO-EXP-02-OLV',
+        price: 2499,
+        originalPrice: 3999,
+        stock: 38,
+        images: [
+          'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1546938576-6e6a64f317cc?q=80&w=1200&auto=format&fit=crop'
+        ]
+      }
+    ],
+    currentPrice: 2499,
+    originalPrice: 3999,
+    discountPercentage: 37,
+    totalStock: 38,
+    rating: 4.8,
+    reviewCount: 76,
+    isFeatured: true,
+    isBestSeller: false,
+    isNewArrival: true,
+    createdAt: '2024-03-05'
+  },
+
+  // 32. Generic Bag 1
+  {
+    id: 'prod-generic-01',
+    slug: 'classic-core-unbranded-everyday-backpack',
+    name: 'Classic Core Plain Everyday Backpack',
+    subtitle: 'Minimalist unbranded essential daypack with dual water bottle sleeves',
+    brand: 'VELO ESSENTIALS',
+    category: 'generic',
+    subcategory: 'Plain Solid Backpacks',
+    collections: ['back-to-school', 'best-sellers'],
+    badges: ['BESTSELLER'],
+    description: 'Clean, versatile, and lightweight plain backpack. Free of loud logos for a clean, modern aesthetic. Ideal for colleges, daily office commutes, and custom printing.',
+    features: ['Unbranded Minimalist Shell', 'Dual Side Mesh Bottle Holders', 'Padded Adjustable Straps', 'Front Quick-Access Zip Bay'],
+    specifications: {
+      material: 'Cordura Polyester',
+      waterResistance: 'Water Resistant',
+      laptopCompatibility: '14"',
+      capacityCategory: '20-30L',
+      compartmentsCount: 3,
+      closureType: 'Smooth Glide Dual Zippers',
+      handleType: 'Webbing Grab Handle',
+      strapType: 'Padded Shoulder Straps',
+      warranty: '1-Year Warranty',
+      countryOfOrigin: 'India'
+    },
+    dimensions: { heightCm: 44, widthCm: 30, depthCm: 16, weightGrams: 490, volumeLiters: 24 },
+    capacityVisualDescription: 'Fits 14" laptop, 4 notebooks, pencil pouch, lunchbox, and 1L water bottle.',
+    variants: [
+      {
+        id: 'var-gen-1-nvy',
+        colorName: 'Solid Navy Blue',
+        colorHex: '#1e3a8a',
+        capacity: '24L',
+        sku: 'VLO-GEN-01-NVY',
+        price: 1099,
+        originalPrice: 1799,
+        stock: 60,
+        images: [
+          'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1546938576-6e6a64f317cc?q=80&w=1200&auto=format&fit=crop'
+        ]
+      }
+    ],
+    currentPrice: 1099,
+    originalPrice: 1799,
+    discountPercentage: 38,
+    totalStock: 60,
+    rating: 4.7,
+    reviewCount: 165,
+    isFeatured: true,
+    isBestSeller: true,
+    isNewArrival: false,
+    createdAt: '2024-01-18'
+  },
+
+  // 33. Generic Bag 2
+  {
+    id: 'prod-generic-02',
+    slug: 'metro-basics-20l-campus-daypack',
+    name: 'Metro Basics Lightweight 20L Campus Bag',
+    subtitle: 'Streamlined unbranded daily carrier with padded back support',
+    brand: 'VELO ESSENTIALS',
+    category: 'generic',
+    subcategory: 'Daily Utility Packs',
+    collections: ['back-to-school'],
+    badges: ['NEW'],
+    description: 'A reliable everyday workhorse. Crafted from lightweight water-repellent polyester with reinforced high-stress anchor points and smooth metal zipper pulls.',
+    features: ['Lightweight Ergonomic Construction', 'Easy-Grip Corded Pulls', 'Internal Organizer Sleeve', 'Soft Mesh Padded Back'],
+    specifications: {
+      material: 'Cordura Polyester',
+      waterResistance: 'Water Resistant',
+      laptopCompatibility: '13"',
+      capacityCategory: '10-20L',
+      compartmentsCount: 2,
+      closureType: 'Smooth Metal Zippers',
+      handleType: 'Reinforced Webbing Loop',
+      strapType: 'Contoured Air-Mesh Straps',
+      warranty: '1-Year Warranty',
+      countryOfOrigin: 'India'
+    },
+    dimensions: { heightCm: 42, widthCm: 28, depthCm: 15, weightGrams: 420, volumeLiters: 20 },
+    capacityVisualDescription: 'Fits 13" laptop, tablet, umbrella, stationery, and headphones.',
+    variants: [
+      {
+        id: 'var-gen-2-blk',
+        colorName: 'Charcoal Black',
+        colorHex: '#18181b',
+        capacity: '20L',
+        sku: 'VLO-GEN-02-BLK',
+        price: 999,
+        originalPrice: 1599,
+        stock: 55,
+        images: [
+          'https://images.unsplash.com/photo-1546938576-6e6a64f317cc?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1200&auto=format&fit=crop'
+        ]
+      }
+    ],
+    currentPrice: 999,
+    originalPrice: 1599,
+    discountPercentage: 37,
+    totalStock: 55,
+    rating: 4.8,
+    reviewCount: 110,
+    isFeatured: false,
+    isBestSeller: true,
+    isNewArrival: true,
+    createdAt: '2024-02-20'
   }
 ];
 
